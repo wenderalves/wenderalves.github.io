@@ -1,1 +1,38 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wender Alves :: Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="session">
+            <h1 class="tituloH1">Agora no Brasil <small id="update"></small></h1>
+        </div>
+        <div class="session" style="height: 300px;">
+            <div class="contador">
+                <div class="item bgInfected">
+                    <p class="ctNumber" id="infectados">0</p>
+                    <p>INFECTADOS</p>
+                </div>
+                <div class="item bgDeaths">
+                    <p class="ctNumber" id="mortos">0</p>
+                    <p>MORTOS</p>
+                </div>
+                <div class="item bgSafe">
+                    <p class="ctNumber" id="curados">0</p>
+                    <p>CURADOS</p>
+                </div>
+            </div>
+        </div>
+        <div class="session">
+            <iframe src="https://www.ibge.gov.br/apps/populacao/projecao/box_popclock.php" width="650" height="175" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+    <script src="./js/countUp.min.js" type="module"></script>
+    <script src="./js/moment.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
