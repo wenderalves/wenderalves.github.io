@@ -1,4 +1,4 @@
-import { CountUp } from './js/CountUp.min.js';
+import { CountUp } from './js/countUp.min.js';
 
 //CountUp
 const options = { separator: '', decimal: ''};
