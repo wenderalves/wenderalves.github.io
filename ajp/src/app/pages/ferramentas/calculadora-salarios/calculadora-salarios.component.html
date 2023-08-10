@@ -1,0 +1,23 @@
+<div class="calculadora">
+    <div class="header">
+        <div class="logo" [innerHTML]="logo"></div>
+        <h1>CALCULADORA DE SALARIOS</h1>
+    </div>
+    <div class="conteudo">
+        <div class="input">
+            <label for="salario-anual">Salário Anual</label>
+            <input type="number" id="salario-anual" [(ngModel)]="salarioAnual" placeholder="Salário anual oferecido">
+        </div>
+
+        <div class="input">
+            <label for="dolar">Preço da Moeda</label>
+            <input type="number" id="dolar" [(ngModel)]="valorMoeda" placeholder="ex: 5.96">
+        </div>
+
+        <div class="input">
+            <button (click)="calculaSalario()">Calcula</button>
+        </div>
+
+        <div class="resultado" *ngIf="resultado" [innerHTML]="resultado"></div>
+    </div>
+</div>
