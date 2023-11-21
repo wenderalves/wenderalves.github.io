@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'ferramentas',
-        loadChildren: () => import("./pages/ferramentas/ferramentas.module").then(m => m.CalculadoraSalariosModule)
+        loadChildren: () => import("./pages/ferramentas/ferramentas.module").then(m => m.FerramentasModule)
     },
     {
         path: '**',
@@ -19,7 +19,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule],
     providers: [],
 })
