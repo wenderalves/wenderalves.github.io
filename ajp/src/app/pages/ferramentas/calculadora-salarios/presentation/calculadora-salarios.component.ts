@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LogoSVG } from 'src/app/resources/logo';
 import { CalculaSalarioUseCase } from '../application/calcula-salario.use-case';
+import { ApiDolarService } from '../services/api-dolar.service';
 
 @Component({
   selector: 'app-calculadora-salarios',
   templateUrl: './calculadora-salarios.component.html',
   styleUrls: ['./calculadora-salarios.component.scss']
 })
-export class CalculadoraSalariosComponent {
+export class CalculadoraSalariosComponent implements OnInit {
   logo: any;
   resultado: SafeHtml = '';
-  salarioAnual: number | null = null;
-  valorMoeda: number | null = null;
+  salarioAnual: number = 0;
+  valorMoeda: number = 0;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private serviceDolar: ApiDolarService) {
     this.logo = new LogoSVG(this.sanitizer).loadLogo();
+  }
+
+  ngOnInit(): void {
+    // TODO: esta forma ainda está errada criar um adapter para abstrair a parte de httpClient
+    this.serviceDolar.getValorAtualDolar().subscribe((res:any) => {
+      if (res['USDBRL']) {
+        this.valorMoeda = +res['USDBRL'].bid;
+      }
+    });
   }
 
 
@@ -38,7 +48,7 @@ export class CalculadoraSalariosComponent {
   calculaSalario() {
     const salario = new CalculaSalarioUseCase(this.salarioAnual, this.valorMoeda);
     const resSalario = salario.calculaSalario();
-    
+
     if (resSalario) {
       const resHtml = `Salário Mensal é: <b>${this.formatCurrency(resSalario['totalPorMes'], 'USD')}</b> <br/>
       Salário Mensal Convertido é: <b>${this.formatCurrency(resSalario['totalPorMesConvertido'])}</b> <br/>

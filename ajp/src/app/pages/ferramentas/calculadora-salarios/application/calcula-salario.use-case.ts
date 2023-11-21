@@ -8,8 +8,8 @@ export class CalculaSalarioUseCase {
         this.salario = new Salario(salarioAnual, valorAtualMoeda);
     }
 
-    calculaSalario(): SalarioRetorno {
-        if (typeof this.salario.salarioAnual !== 'number' && typeof this.salario.valorAtualMoeda !== 'number') return;        
+    calculaSalario(): SalarioRetorno | null {
+        if (typeof this.salario.salarioAnual !== 'number' && typeof this.salario.valorAtualMoeda !== 'number') return null;
         return {
             totalPorMes: this.salario.totalPorMes(),
             totalPorMesConvertido: this.salario.totalPorMesConvertido(),

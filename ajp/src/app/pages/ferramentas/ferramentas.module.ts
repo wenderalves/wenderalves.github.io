@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CalculadoraSalariosComponent } from './calculadora-salarios/calculadora-salarios.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -7,14 +6,14 @@ import { FormsModule } from '@angular/forms';
 export const routes: Routes = [
     {
         path: 'calculadora-salarios',
-        component: CalculadoraSalariosComponent
+        loadChildren: () => import("./calculadora-salarios/calculadora-salarios.module").then(m => m.CalculadoraSalariosModule)
     }
 ];
 
 @NgModule({
     imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
     exports: [],
-    declarations: [CalculadoraSalariosComponent],
+    declarations: [],
     providers: [],
 })
-export class CalculadoraSalariosModule { }
+export class FerramentasModule { }

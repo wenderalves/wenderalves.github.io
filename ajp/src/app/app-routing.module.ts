@@ -9,7 +9,7 @@ export const routes: Routes = [
     },
     {
         path: 'ferramentas',
-        loadChildren: () => import("./pages/ferramentas/ferramentas.module").then(m => m.CalculadoraSalariosModule)
+        loadChildren: () => import("./pages/ferramentas/ferramentas.module").then(m => m.FerramentasModule)
     },
     {
         path: '**',
