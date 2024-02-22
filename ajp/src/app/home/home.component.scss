@@ -21,20 +21,23 @@
 
     .conteudo {
         display: flex;
-        border: 1px solid #0f479c;
-        border-radius: 10px;
-        background: #0f479c;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        padding: 12px;
         justify-content: center;
+        gap: 15px;
 
         a {
+            border: 1px solid #0f479c;
+            background: #0f479c;
+            border-radius: 10px;
+            gap: 20px;
+            padding: 12px;
             color: #fff;
             text-decoration: none;
 
             &:hover {
+                border: 1px solid #072b63;
+                background: #072b63;
                 color: #ffff99;
             }
         }

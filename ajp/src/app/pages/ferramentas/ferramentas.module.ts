@@ -7,6 +7,10 @@ export const routes: Routes = [
     {
         path: 'calculadora-salarios',
         loadChildren: () => import("./calculadora-salarios/calculadora-salarios.module").then(m => m.CalculadoraSalariosModule)
+    },
+    {
+        path: 'perfil-comportamental',
+        loadChildren: () => import("./calculadora-perfil/calculadora-perfil.module").then(m => m.CalculadoraPerfilModule)
     }
 ];
 

@@ -1,0 +1,47 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+
+    .perfil {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &__titulo {
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        &__content {
+            .actions {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 30px;
+
+                button {
+                    padding: 16px 25px;
+                    color: #fff;
+                    background: #101cc0;
+                    cursor: pointer;
+                    border-radius: 8px;
+                    border: none;
+
+                    &:hover {
+                        background: #09128d;
+                    }
+
+                    &:disabled {
+                        cursor: no-drop;
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+}

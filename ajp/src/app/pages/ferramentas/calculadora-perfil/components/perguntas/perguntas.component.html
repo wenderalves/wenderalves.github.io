@@ -1,0 +1,23 @@
+<form [formGroup]="perfilForm">
+    <ul>
+        <li class="pergunta" *ngFor="let item of perguntas">
+            <div>{{ item?.numero}}) {{ item?.pergunta }}</div>
+            <ul>
+                <li *ngFor="let respostas of item?.respostas">
+                    <input type="radio"
+                        [name]="'pergunta-' + item?.numero"
+                        [value]="respostas?.valor"
+                        [id]="'pergunta-' + item?.numero + respostas?.valor"
+                        [formControlName]="'pergunta-' + item?.numero"
+                    >
+                    <label [for]="'pergunta-' + item?.numero + respostas?.valor">
+                        {{ respostas?.label }}
+                    </label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="actions">
+        <button (click)="calcularResultado()" [disabled]="perfilForm.invalid">Calcular</button>
+    </div>
+</form>
