@@ -1,0 +1,19 @@
+<div class="perfil">
+    <div class="perfil__titulo"> CALCULADORA DE PERFIL </div>
+    <p>
+        veja mais sobre o tema nesse <a href="https://media.ibccoaching.com.br/pdf/3workshop/AvaliacaodePerfilComportamental.pdf">pdf</a>.
+    </p>
+    <div class="perfil__content">
+        <ng-container *ngIf="!resultados">
+            <app-perguntas [perguntas]="perguntasTestes" (resultado)="resultado($event)"></app-perguntas>
+        </ng-container>
+        <ng-container *ngIf="resultados">
+            <div class="resultado">
+                <app-grafico [resultados]="resultados"></app-grafico>
+            </div>
+            <div class="actions">
+                <button (click)="reset()">RESPONDER NOVAMENTE</button>
+            </div>
+        </ng-container>
+    </div>
+</div>

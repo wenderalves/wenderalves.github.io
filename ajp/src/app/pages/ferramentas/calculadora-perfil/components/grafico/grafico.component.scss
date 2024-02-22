@@ -1,0 +1,65 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .grafico {
+        width: 100%;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+
+        .barra {
+            border: 1px solid #555;
+            border-radius: 10px;
+            height: 300px;
+            width: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: #444;
+
+            .percentage {
+                font-weight: bold;
+                font-size: 80%;
+                color: #555;
+
+                &.white {
+                    color: #fff;
+                }
+            }
+
+            .progresso {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                z-index: -1;
+
+                &.gato {
+                    background-color: #bb6e09;
+                }
+                &.aguia {
+                    background-color: #751d0e;
+                }
+                &.lobo {
+                    background-color: #2e14c2;
+                }
+                &.tubarao {
+                    background-color: #366606;
+                }
+            }
+
+            .icone {
+                position: absolute;
+                bottom: 0;
+
+                &.white {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
