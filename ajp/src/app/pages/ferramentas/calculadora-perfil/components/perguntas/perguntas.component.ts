@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-perguntas',
@@ -12,12 +13,18 @@ export class PerguntasComponent implements OnInit {
   @Output() resultado: EventEmitter<any> = new EventEmitter<any>();
 
   perfilForm = this.formBuilder.group({});
+  perguntaAtual = 1;
+  disabledProximo$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.perguntas.forEach((el: any) => {
       this.perfilForm.addControl(`pergunta-${el?.numero}`, new FormControl('', Validators.required));
+    });
+
+    this.perfilForm.valueChanges.subscribe((val: any) => {
+      this.disabledProximo$.next(val['pergunta-' + this.perguntaAtual] === '');
     });
   }
 
@@ -45,5 +52,14 @@ export class PerguntasComponent implements OnInit {
         O ${resultado['O'] } X4 ${resultado['O'] * 4}% Lobo
       `);
     }
+  }
+
+  voltar() {
+    this.perguntaAtual--;
+  }
+
+  avancar() {
+    this.disabledProximo$.next(true);
+    this.perguntaAtual++;
   }
 }

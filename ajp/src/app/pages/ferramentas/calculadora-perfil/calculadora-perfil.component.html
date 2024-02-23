@@ -1,8 +1,17 @@
 <div class="perfil">
-    <div class="perfil__titulo"> CALCULADORA DE PERFIL </div>
-    <p>
+    <div class="perfil__titulo">
+        <a [routerLink]="['/']">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.49202 9.04802L8.52603 14.2183C8.7315 14.4294 8.83013 14.6756 8.82191 14.9569C8.81369 15.2383 8.7065 15.4845 8.50035 15.6955C8.29488 15.889 8.05516 15.9903 7.7812 15.9994C7.50724 16.0086 7.26753 15.9073 7.06206 15.6955L0.281557 8.73147C0.178822 8.62596 0.10588 8.51165 0.0627314 8.38854C0.0195827 8.26544 -0.00130658 8.13355 6.32218e-05 7.99286C6.32218e-05 7.85217 0.0216373 7.72027 0.0647859 7.59717C0.107935 7.47407 0.180191 7.35976 0.281557 7.25424L7.06206 0.290169C7.25041 0.0967228 7.48601 0 7.76888 0C8.05174 0 8.29556 0.0967228 8.50035 0.290169C8.70582 0.501202 8.80855 0.751979 8.80855 1.0425C8.80855 1.33302 8.70582 1.58345 8.50035 1.79378L3.49202 6.9377H14.9726C15.2637 6.9377 15.5079 7.03899 15.7051 7.24158C15.9024 7.44417 16.0007 7.6946 16 7.99286C16 8.29182 15.9014 8.5426 15.7041 8.74519C15.5069 8.94778 15.263 9.04872 14.9726 9.04802H3.49202Z" fill="#66666B"/>
+            </svg>
+        </a>
+        <div class="titulo">
+            Calculadora de Personalidade
+        </div>
+    </div>
+    <!-- <p>
         veja mais sobre o tema nesse <a href="https://media.ibccoaching.com.br/pdf/3workshop/AvaliacaodePerfilComportamental.pdf">pdf</a>.
-    </p>
+    </p> -->
     <div class="perfil__content">
         <ng-container *ngIf="!resultados">
             <app-perguntas [perguntas]="perguntasTestes" (resultado)="resultado($event)"></app-perguntas>
